@@ -1,0 +1,76 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darksite.gr agenda</title>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+</head>
+
+<h style="color: darkslategray; font-family: fantasy; font-size: 300%; margin-left: 2%; background-size: cover" onclick="">DARKSITE.gr</h>
+<h style="font-size: small"  > Για την υποστηρίξη της εναλλακτικής κουλτούρας στην Αθήνα / Supporting the alternative culture in Athens</h>
+<body style="background-color: thistle">
+<menu type="toolbar" style="align-content: center; position: relative; border: darkmagenta;">
+    <input type="button" value="About" style="padding:10px;background-color: cornflowerblue; position: relative; font-size:large"/>
+    <input type="button" value="Ατζέντα/Events" style="background-color: aqua; padding: 10px; font-size:large"/>
+    <input type="button" value="Ideas" style="background-color: indianred; padding: 10px; font-size:large"/>
+    <input type="button" value="Links" style="background-color: coral; padding: 10px; font-size:large"/>
+</menu>
+
+  Events <h id="DATE"></h>
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0]=  "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var n = weekday[d.getDay()];
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+    var today = n + ' ' + dd+'/'+mm+'/'+yyyy;
+    document.getElementById("DATE").innerHTML = today;
+</script>
+
+
+<div class="events" id="events">
+    <script>
+        for(var i = 0; i < 10; i++)
+        {
+            document.getElementById("events").innerHTML += "lol";
+        }
+    </script>
+</div>
+
+<div class="pickdate" style="float: right">
+<p> Επιλέξτε ημερομηνία: <input type="text" id="datepicker"></p>
+</div>
+<script>
+    $(document).ready(function () {
+        $(function() {
+            $( "#datepicker" ).datepicker(
+                    {
+                        dateFormat: 'dd/mm/yy',
+                        onSelect: function (dateText, inst) {
+                            document.getElementById("DATE").innerHTML = dateText;
+                        }
+                    }
+            );
+
+        });
+    });
+</script>
